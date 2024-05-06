@@ -1,18 +1,25 @@
-import adapter from "@sveltejs/adapter-cloudflare";
+import { preprocessMeltUI, sequence } from '@melt-ui/pp';
+import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-
-/** @type {import('@sveltejs/kit').Config} */
+/** @type {import('@sveltejs/kit').Config}*/
 const config = {
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
-
+	preprocess: sequence([vitePreprocess(), preprocessMeltUI()]),
 	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			$routes: 'src/routes',
+			'$routes/*': 'src/routes/*',
+			'$test-helpers': 'src/test-helpers',
+			$constants: 'src/constants',
+			$docs: 'src/docs',
+			'$docs/*': 'src/docs/*',
+			$components: 'src/components',
+			'$components/*': 'src/components/*',
+			$icons: 'src/components/icons',
+			'$icons/*': 'src/components/icons/*',
+			$utils: 'src/lib/utils',
+			'utils/*': 'src/lib/utils/*'
+		}
 	}
 };
-
 export default config;
