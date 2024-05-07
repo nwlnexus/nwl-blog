@@ -67,5 +67,8 @@
 				"@melt-ui/svelte>svelte": "^5"
 			}
 		}
+	},
+	"dependencies": {
+		"svelte-motion": "^0.12.2"
 	}
 }

@@ -13,10 +13,10 @@ const config = {
 			$constants: 'src/constants',
 			$docs: 'src/docs',
 			'$docs/*': 'src/docs/*',
-			$components: 'src/components',
-			'$components/*': 'src/components/*',
-			$icons: 'src/components/icons',
-			'$icons/*': 'src/components/icons/*',
+			$components: 'src/lib/components',
+			'$components/*': 'src/lib/components/*',
+			$icons: 'src/lib/components/icons',
+			'$icons/*': 'src/lib/components/icons/*',
 			$utils: 'src/lib/utils',
 			'utils/*': 'src/lib/utils/*'
 		}
