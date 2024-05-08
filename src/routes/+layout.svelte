@@ -1,13 +1,11 @@
 <script lang="ts">
-	import '../app.postcss';
+	import '../app.css';
 	import { ModeWatcher } from 'mode-watcher';
 	import { cn } from '$utils';
 	import { page } from '$app/stores';
 	import SiteHeader from '$components/site-header.svelte';
 	let { children } = $props();
 	let isRoot = $state($page.url.pathname === '/');
-
-	$inspect(isRoot).with(console.trace);
 </script>
 
 <ModeWatcher defaultMode="dark" />
